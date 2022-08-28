@@ -6,4 +6,4 @@ technically stop when there is sufficient coverage of your software. At a minimu
 have been sufficiently fuzzed prior to a release. 
 
 The simple approach of fuzzing after feature-complete, typically within the validation phase, applies to the traditional waterfall or spiral
-development methodology. However, what about fuzzing in an Agile or a DevOps development model? We will discuss this in the next section.  
+development methodology. However, what about fuzzing in an Agile or a DevOps development model?
