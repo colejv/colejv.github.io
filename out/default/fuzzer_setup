@@ -1,0 +1,4 @@
+# environment variables:
+AFL_KILL_SIGNAL=9
+# command line:
+'afl-fuzz' '-i' '/home/jip/fuzzing_xpdf/pdf_examples/' '-o' '/home/jip/fuzzing_xpdf/out/' '-s' '123' '--' '/home/jip/fuzzing_xpdf/install/bin/pdftotext' '@@' '/home/jip/fuzzing_xpdf/output'

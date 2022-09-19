@@ -1,0 +1,49 @@
+(1 of 1) - Hash: 888d82960d8304b5da408541d30fbc64.56016ce2f82d0ad60ca77319d4805f36
+---CRASH SUMMARY---
+Filename: crashes/id:000000,sig:11,src:000000,time:34403,execs:18352,op:havoc,rep:16
+SHA1: 87799709af75371b1cf71314fd6b33e3806b9a30
+Classification: EXPLOITABLE
+Hash: 888d82960d8304b5da408541d30fbc64.56016ce2f82d0ad60ca77319d4805f36
+Command: /home/jip/fuzzing_xpdf/install/bin/pdftotext crashes/id:000000,sig:11,src:000000,time:34403,execs:18352,op:havoc,rep:16 /home/jip/fuzzing_xpdf/output
+Faulting Frame:
+   gmalloc @ 0x00005555556265ff: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+Disassembly:
+   0x00007ffff7b0ae34: lea rcx,[rax*8+0x10]
+   0x00007ffff7b0ae3c: jmp 0x7ffff7b0aca3 <_int_malloc+563>
+   0x00007ffff7b0ae41: nop DWORD PTR [rax+0x0]
+   0x00007ffff7b0ae48: mov rax,r13
+   0x00007ffff7b0ae4b: mov rdi,r13
+=> 0x00007ffff7b0ae4e: mov DWORD PTR [rsp+0x28],r14d
+   0x00007ffff7b0ae53: shr rax,0x6
+   0x00007ffff7b0ae57: shr rdi,0x9
+   0x00007ffff7b0ae5b: mov DWORD PTR [rsp+0x70],0x6e
+   0x00007ffff7b0ae63: mov QWORD PTR [rsp+0x40],rax
+Stack Head (1000 entries):
+   _int_malloc               @ 0x00007ffff7b0ae4e: in (BL)
+   __GI___libc_malloc        @ 0x00007ffff7b0d154: in (BL)
+   gmalloc                   @ 0x00005555556265ff: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   copyString                @ 0x000055555562683a: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   Object::initCmd           @ 0x00005555555f928c: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   Lexer::getObj             @ 0x00005555555f547a: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   Parser::shift             @ 0x00005555555fe168: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   Parser::getObj            @ 0x00005555555fdaff: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   XRef::fetch               @ 0x000055555562167c: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   Object::fetch             @ 0x00005555555f8b8e: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   Dict::lookup              @ 0x000055555559c4f6: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   Object::dictLookup        @ 0x00005555555f9843: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   Parser::makeStream        @ 0x00005555555fde39: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   Parser::getObj            @ 0x00005555555fda69: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   XRef::fetch               @ 0x00005555556217dc: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+   Object::fetch             @ 0x00005555555f8b8e: in /home/jip/fuzzing_xpdf/install/bin/pdftotext
+Registers:
+rax=0x0000000000000020 rbx=0x00007ffff7c5fb80 rcx=0x00007ffff7c5fbf0 rdx=0x0000000000000000 
+rsi=0x00007ffff7c5fb80 rdi=0x0000000000000020 rbp=0x0000000000000004 rsp=0x00007fffff7fef80 
+ r8=0x00007ffff7c5fbf0  r9=0x0000000000000000 r10=0x0000555556658000 r11=0x0000555556673054 
+r12=0xffffffffffffff90 r13=0x0000000000000020 r14=0x0000000000000002 r15=0x0000000000000000 
+rip=0x00007ffff7b0ae4e efl=0x0000000000010246  cs=0x0000000000000033  ss=0x000000000000002b 
+ ds=0x0000000000000000  es=0x0000000000000000  fs=0x0000000000000000  gs=0x0000000000000000 
+Extra Data:
+   Description: Possible stack corruption
+   Short description: PossibleStackCorruption (7/22)
+   Explanation: GDB generated an error while unwinding the stack and/or the stack contained return addresses that were not mapped in the inferior's process address space and/or the stack pointer is pointing to a location outside the default stack region. These conditions likely indicate stack corruption, which is generally considered exploitable.
+---END SUMMARY---
